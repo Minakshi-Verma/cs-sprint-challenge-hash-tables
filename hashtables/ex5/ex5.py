@@ -6,7 +6,20 @@ def finder(files, queries):
     """
     YOUR CODE HERE
     """
-    # Your code here
+    
+    cache = {}
+
+    for query in queries:
+        #Add the query to the cache
+        cache[query] = True
+    
+    result = []
+    # Iterarte through all the files and see if query word in there
+    for file in files: 
+        # open the file and match each word separetd by "/" with cache
+        if file.rsplit("/", 1)[-1] in cache:         
+            # if found, append to result list
+            result.append(file)
 
     return result
 
